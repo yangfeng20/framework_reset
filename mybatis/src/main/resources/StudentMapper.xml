@@ -4,6 +4,6 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.maple.mybatis.quick.StudentMapper">
     <insert id="insertStudent">
-        insert student(name, age) values('测试添加', 10);
+        insert student(name, age, created_date) values('测试添加', 10, now());
     </insert>
 </mapper>

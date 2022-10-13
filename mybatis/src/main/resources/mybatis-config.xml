@@ -4,10 +4,9 @@
         "https://mybatis.org/dtd/mybatis-3-config.dtd">
 
 
-
-
 <configuration>
 
+    <properties resource="jdbc.properties"/>
 
     <typeAliases>
         <package name="com.maple.mybatis.entity"/>
@@ -17,10 +16,10 @@
         <environment id="dev_env">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="driver" value="${jdbc.driver}"/>
                 <property name="url" value="jdbc:mysql://localhost:3306/base_info?useSSL=false"/>
                 <property name="username" value="root"/>
-                <property name="password" value="lxx920211"/>
+                <property name="" value="${jdbc.password}"/>
             </dataSource>
         </environment>
     </environments>
