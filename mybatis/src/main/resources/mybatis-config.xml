@@ -19,7 +19,7 @@
                 <property name="driver" value="${jdbc.driver}"/>
                 <property name="url" value="jdbc:mysql://localhost:3306/base_info?useSSL=false"/>
                 <property name="username" value="root"/>
-                <property name="" value="${jdbc.password}"/>
+                <property name="password" value="${jdbc.password}"/>
             </dataSource>
         </environment>
     </environments>
