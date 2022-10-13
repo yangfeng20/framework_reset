@@ -2,7 +2,17 @@
 <!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+
+
 <configuration>
+
+
+    <typeAliases>
+        <package name="com.maple.mybatis.entity"/>
+    </typeAliases>
+
     <environments default="dev_env">
         <environment id="dev_env">
             <transactionManager type="JDBC"/>
@@ -16,5 +26,10 @@
     </environments>
     <mappers>
         <mapper resource="StudentMapper.xml"/>
+        <mapper resource="StudentMapperMap.xml"/>
+        <mapper resource="StudentMapperMap1.xml"/>
+        <mapper resource="StudentMapperObject.xml"/>
     </mappers>
+
+
 </configuration>
