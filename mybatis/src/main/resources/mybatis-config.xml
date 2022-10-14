@@ -8,6 +8,12 @@
 
     <properties resource="jdbc.properties"/>
 
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <!--下划线转驼峰-->
+        <!--<setting name="mapUnderscoreToCamelCase" value="true"/>-->
+    </settings>
+
     <typeAliases>
         <package name="com.maple.mybatis.entity"/>
         <package name="com.maple.mybatis.mvc.entity"/>
@@ -30,6 +36,8 @@
         <mapper resource="StudentMapperMap1.xml"/>
         <mapper resource="StudentMapperObject.xml"/>
         <mapper resource="accountMapper.xml"/>
+        <mapper resource="accountParamMapper.xml"/>
+        <mapper resource="PersonMapper.xml"/>
     </mappers>
 
 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.maple.mybatis.param.entity.PersonMapper">
+
+    <sql id="field_list">
+        id, name, home_address, account_id, created_date, updated_date
+    </sql>
+
+    <insert id="insertPerson" useGeneratedKeys="true" keyProperty="id">
+
+        insert into person(<include refid="field_list"/>) values (#{id}, #{name}, #{homeAddress}, #{accountId},
+        #{createdDate}, #{updatedDate})
+    </insert>
+    <select id="selectList" resultType="com.maple.mybatis.param.entity.Person">
+        select <include refid="field_list"/> from person where name = #{name} and id = #{id}
+    </select>
+    <select id="selectOne" resultMap="selectList">
+        select
+        <include refid="field_list"/>
+        from person where id = #{test}
+    </select>
+
+    <resultMap id="selectList" type="com.maple.mybatis.param.entity.Person">
+        <result column="home_address" property="homeAddress"/>
+        <result column="account_id" property="accountId"/>
+        <result column="created_date" property="createdDate"/>
+        <result column="updated_date" property="updatedDate"/>
+    </resultMap>
+</mapper>

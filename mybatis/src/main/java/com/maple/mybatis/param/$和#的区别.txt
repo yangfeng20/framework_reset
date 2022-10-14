@@ -1,0 +1,17 @@
+
+使用#{}
+
+Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@23282c25]
+==>  Preparing: select * from account where name = ?
+==> Parameters: from(String)
+<==    Columns: id, name, balance, created_date
+<==        Row: 1, from, 600, null
+<==      Total: 1
+
+如果参数是字符串：会自动在两边拼接引号
+
+
+使用${}
+
+==>  Preparing: select * from account where name = from
+==> Parameters:
