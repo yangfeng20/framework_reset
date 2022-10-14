@@ -9,14 +9,14 @@
         values (#{id}, #{name}, #{age}, #{createdDate}, #{classId}, #{test})
     </insert>
 
-    <select id="selectStudent" resultType="com.maple.mybatis.entity.StudentDO">
+    <select id="selectStudent" resultType="com.maple.mybatis.quick.entity.StudentDO">
         select id, name, age, created_date as createdDate, class_id as classId, test
         from student
         where id = #{id};
     </select>
 
 
-    <select id="selectAll" resultType="com.maple.mybatis.entity.StudentDO">
+    <select id="selectAll" resultType="com.maple.mybatis.quick.entity.StudentDO">
         select id, name, age, created_date as createdDate, class_id as classId, test
         from student;
     </select>

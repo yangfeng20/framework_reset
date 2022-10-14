@@ -1,4 +1,4 @@
-package com.maple.mybatis.entity;
+package com.maple.mybatis.quick.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

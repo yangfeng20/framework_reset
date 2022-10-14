@@ -1,6 +1,6 @@
 package com.maple.mybatis.quick;
 
-import com.maple.mybatis.entity.StudentDO;
+import com.maple.mybatis.quick.entity.StudentDO;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.Date;
