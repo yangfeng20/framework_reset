@@ -10,6 +10,7 @@
 
     <typeAliases>
         <package name="com.maple.mybatis.entity"/>
+        <package name="com.maple.mybatis.mvc.entity"/>
     </typeAliases>
 
     <environments default="dev_env">
@@ -28,6 +29,7 @@
         <mapper resource="StudentMapperMap.xml"/>
         <mapper resource="StudentMapperMap1.xml"/>
         <mapper resource="StudentMapperObject.xml"/>
+        <mapper resource="accountMapper.xml"/>
     </mappers>
 
 

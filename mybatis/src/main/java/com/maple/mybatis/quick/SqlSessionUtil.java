@@ -17,8 +17,10 @@ public class SqlSessionUtil {
 
     private static SqlSessionFactory sqlSessionFactory;
 
+    private final static ThreadLocal<SqlSession> sessionThreadLocal = new ThreadLocal<>();
 
-    static{
+
+    static {
         // 构建sqlSessionFactoryBuilder
         SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
 
@@ -31,7 +33,19 @@ public class SqlSessionUtil {
     }
 
 
-    public static SqlSession getSqlSession(){
-        return sqlSessionFactory.openSession();
+    public static SqlSession getSqlSession() {
+        SqlSession sqlSession = sessionThreadLocal.get();
+        if (sqlSession == null) {
+            sqlSession = sqlSessionFactory.openSession();
+            sessionThreadLocal.set(sqlSession);
+        }
+        return sqlSession;
+    }
+
+    public static void close() {
+        if (sessionThreadLocal.get() == null) {
+            sessionThreadLocal.get().close();
+            sessionThreadLocal.remove();
+        }
     }
 }
