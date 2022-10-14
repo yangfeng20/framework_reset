@@ -1,11 +1,15 @@
 package com.maple.mybatis.ibatis.core;
 
+import lombok.Data;
+
 /**
  * @author 杨锋
  * @date 2022/10/13 21:28
  * desc:
  */
 
+
+@Data
 public class MappedStatement {
 
 

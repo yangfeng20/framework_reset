@@ -44,7 +44,7 @@ public class StudentDO implements Serializable {
      */
     private Long classId;
     
-    private boolean test;
+    private Boolean test;
     
 }
 

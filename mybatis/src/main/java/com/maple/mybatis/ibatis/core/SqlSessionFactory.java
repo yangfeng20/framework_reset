@@ -28,5 +28,11 @@ public class SqlSessionFactory {
     /**
      * sqlId,sql标签信息
      */
-    private Map<String, MappedStatement> MappedStatements;
+    private Map<String, MappedStatement> mappedStatements;
+
+
+    public SqlSession openSqlSession(){
+        transaction.openConnection();
+        return new SqlSession(this);
+    }
 }

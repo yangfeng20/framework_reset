@@ -65,7 +65,8 @@ public class JdbcTransaction implements Transaction {
     public void openConnection() {
         if (curConnection == null) {
             try {
-                Connection connection = dataSource.getConnection();
+                curConnection = dataSource.getConnection();
+                curConnection.setAutoCommit(autoCommit);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
