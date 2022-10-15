@@ -14,13 +14,57 @@
         insert into person(<include refid="field_list"/>) values (#{id}, #{name}, #{homeAddress}, #{accountId},
         #{createdDate}, #{updatedDate})
     </insert>
+    <insert id="insertBatch">
+        insert into person(name, home_address) values
+        <foreach collection="arg0" separator="," item="item">
+            (#{item.name}, #{item.homeAddress})
+        </foreach>
+    </insert>
+    <update id="updateById">
+        update person
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="homeAddress != null and homeAddress != ''">
+                home_address = #{homeAddress},
+            </if>
+        </set>
+
+        <where>
+            id = #{id}
+        </where>
+    </update>
     <select id="selectList" resultType="com.maple.mybatis.param.entity.Person">
-        select <include refid="field_list"/> from person where name = #{name} and id = #{id}
+        select
+        <include refid="field_list"/>
+        from person where name = #{name} and id = #{id}
     </select>
     <select id="selectOne" resultMap="selectList">
         select
         <include refid="field_list"/>
         from person where id = #{test}
+    </select>
+
+    <select id="selectByCondition" resultType="com.maple.mybatis.param.entity.Person">
+        select * from person
+        <where>
+            <if test="arg0 != null and arg0 != ''">
+                name = #{param1}
+            </if>
+            <if test="param2 != null and param2 != 0">
+                and id = #{arg1}
+            </if>
+            <trim prefix="and id in ( " suffix=")">
+                #{arg1}, #{arg1}
+            </trim>
+        </where>
+    </select>
+    <select id="selectByIds" resultType="com.maple.mybatis.param.entity.Person">
+        select * from person where id in
+        <foreach collection="ids" open="(" close=")" separator="," item="item">
+            #{item}
+        </foreach>
     </select>
 
     <resultMap id="selectList" type="com.maple.mybatis.param.entity.Person">

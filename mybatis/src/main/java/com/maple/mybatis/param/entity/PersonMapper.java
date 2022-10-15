@@ -25,4 +25,15 @@ public interface PersonMapper {
 
     Person selectOne(Long id);
 
+
+    List<Person> selectByCondition(String name, Long id);
+
+
+    int updateById(Person person);
+
+
+    List<Person> selectByIds(@Param("ids") List<Long> ids);
+
+    int insertBatch(List<Person> personList);
+
 }
