@@ -2,6 +2,7 @@ package com.maple.mybatis.table.mapping.entity;
 
 import lombok.ToString;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -12,7 +13,7 @@ import java.util.Date;
 
 
 @ToString
-public class Student {
+public class Student implements Serializable {
 
     private Long id;
 

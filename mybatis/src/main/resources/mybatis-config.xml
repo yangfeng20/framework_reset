@@ -19,6 +19,11 @@
         <package name="com.maple.mybatis.mvc.entity"/>
     </typeAliases>
 
+    <!--pageHelper分页拦截器-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"/>
+    </plugins>
+
     <environments default="dev_env">
         <environment id="dev_env">
             <transactionManager type="JDBC"/>

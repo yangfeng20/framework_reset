@@ -18,6 +18,7 @@ public class TableMappingDemo {
 
         StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
         Student student = mapper.selectById(1L);
+        sqlSession.clearCache();
         Student student2 = mapper.selectById(1L);
         System.out.println("-------------------------");
         System.out.println(student);
