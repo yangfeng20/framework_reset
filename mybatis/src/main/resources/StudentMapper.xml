@@ -2,8 +2,31 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.maple.mybatis.quick.StudentMapper">
+<mapper namespace="com.maple.mybatis.table.mapping.entity.StudentMapper">
+
     <insert id="insertStudent">
-        insert student(name, age, created_date) values('测试添加', 10, now());
+        insert student(name, age, created_date)
+        values ('测试添加', 10, now());
     </insert>
+
+    <resultMap id="studentResultMap" type="com.maple.mybatis.table.mapping.entity.Student">
+        <result column="cid" property="clazz.id"/>
+        <result column="cname" property="clazz.name"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="studentResultMap">
+        select student.id,
+               student.name,
+               student.age,
+               student.created_date,
+               student.class_id,
+               student.test,
+               c.id cid,
+               c.name cname
+        from student
+                 left join clazz as c on c.id = #{id}
+        where student.id = #{id}
+    </select>
+
+
 </mapper>
