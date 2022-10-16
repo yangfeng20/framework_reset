@@ -22,6 +22,7 @@
     <!--pageHelper分页拦截器-->
     <plugins>
         <plugin interceptor="com.github.pagehelper.PageInterceptor"/>
+        <plugin interceptor="com.maple.mybatis.table.mapping.interceptor.MyInterceptor"/>
     </plugins>
 
     <environments default="dev_env">
