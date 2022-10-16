@@ -36,7 +36,9 @@
             </dataSource>
         </environment>
     </environments>
+
     <mappers>
+        <!--编译之后在classes文件下；也就是写的时候在resource下-->
         <mapper resource="StudentMapper.xml"/>
         <mapper resource="StudentMapperMap.xml"/>
         <mapper resource="StudentMapperMap1.xml"/>
@@ -44,6 +46,9 @@
         <mapper resource="accountMapper.xml"/>
         <mapper resource="accountParamMapper.xml"/>
         <mapper resource="PersonMapper.xml"/>
+
+        <!--mapper和xml同一目录-->
+        <package name="com.maple.mybatis.annotation"/>
     </mappers>
 
 
