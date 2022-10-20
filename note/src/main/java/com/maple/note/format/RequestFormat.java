@@ -8,22 +8,22 @@ package com.maple.note.format;
 
 public class RequestFormat {
     public static void main(String[] args) {
-        String str = "accountId:1676869\n" +
-                "accountTenantId:1\n" +
-                "xAppId:\"40062\"\n" +
-                "xBPId:\"1\"\n" +
-                "xClientIp:\"219.134.134.102, 47.111.193.47, 112.124.159.199, 100.97.241.57, 192.168.210.238\"\n" +
+        String str = "accountId:3477164\n" +
+                "accountTenantId:3453540\n" +
+                "ext:\n" +
+                "xBPId:\"3458371\"\n" +
+                "xClientIp:\"113.57.21.204\"\n" +
                 "xConnectTimeoutMillis:0\n" +
-                "xDeviceId:\"aac6e3e37b264c512eecbd9f9f1c4343\"\n" +
+                "xDeviceId:\"0131c1e51cabd95c2404a015d2c8774a\"\n" +
                 "xLangCode:\"zh\"\n" +
-                "xPlatformId:1\n" +
+                "xPlatformId:4\n" +
                 "xReadTimeoutMillis:0\n" +
-                "xSession:\"2e6cad008500aa9871344f56f2f7e194\"\n" +
-                "xSourceAppId:\"62010\"\n" +
-                "xTenantId:1\n" +
-                "xTraceId:\"d57efad29b504ea79a5934b0e644e31c.18870.16659709158476445\"\n" +
-                "xUserId:1753685\n" +
-                "xUserName:\"蔡素琼\"";
+                "xSession:\"4bc19054d45c4d4af878da4c299f424b\"\n" +
+                "xSourceAppId:\"61501\"\n" +
+                "xTenantId:3454329\n" +
+                "xTraceId:\"ed7d97f8c689402cac9ca9efbdf3175a.147.16661808644022965\"\n" +
+                "xUserId:3483648\n" +
+                "xUserName:\"罗娟\"";
 
         format(str);
     }

@@ -1,9 +1,8 @@
 package com.maple.note.format;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-
-import java.util.Map;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @author 杨锋
@@ -13,9 +12,14 @@ import java.util.Map;
 
 public class CopyTest {
     public static void main(String[] args) {
-        String str = "{\"actualDeliveryDate\":\"null\",\"isSyncVoyage\":\"null\",\"closingCustomDateType\":\"2\",\"fromDock\":\"null\",\"voyageId\":\"null\",\"viaTerminalCodeState\":\"null\",\"closeCargoDate\":\"null\"}";
-        Map map = JSONObject.parseObject(str, Map.class);
-        System.out.println(map);
-        System.out.println(JSON.toJSONString(map));
+
+        List<Integer> list = ofIter(10).map(index -> index).collect(Collectors.toList());
+        System.out.println(list);
+
+    }
+
+
+    public static Stream<Integer> ofIter(int limit) {
+        return Stream.iterate(0, i -> i + 1).limit(limit);
     }
 }
