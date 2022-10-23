@@ -20,10 +20,12 @@
     </typeAliases>
 
     <!--pageHelper分页拦截器-->
-    <!--<plugins>-->
-    <!--    <plugin interceptor="com.github.pagehelper.PageInterceptor"/>-->
-    <!--    <plugin interceptor="com.maple.mybatis.table.mapping.interceptor.MyInterceptor"/>-->
-    <!--</plugins>-->
+    <plugins>
+        <!--<plugin interceptor="com.github.pagehelper.PageInterceptor"/>-->
+        <plugin interceptor="com.maple.mybatis.table.mapping.interceptor.MyInterceptor">
+            <property name="isEnable" value="true"/>
+        </plugin>
+    </plugins>
 
     <environments default="dev_env">
         <environment id="dev_env">

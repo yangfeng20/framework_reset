@@ -26,6 +26,8 @@ import java.util.Properties;
 )})
 public class MyInterceptor implements Interceptor {
 
+    private boolean isEnable;
+
 
     public MyInterceptor() {
         System.out.println("-----------------------------------这是我的自定义拦截器");
@@ -36,6 +38,9 @@ public class MyInterceptor implements Interceptor {
 
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
+        if (!isEnable) {
+            return invocation.proceed();
+        }
         System.out.println("-----------------------------------这是我的自定义拦截器");
         System.out.println("invocation = " + invocation);
         Object returnObject = invocation.proceed();
@@ -48,11 +53,15 @@ public class MyInterceptor implements Interceptor {
         System.out.println("-----------------------------------这是我的自定义拦截器");
         System.out.println("target = " + target);
         System.out.println("-----------------------------------这是我的自定义拦截器");
+        // 生成目标对象的代理对象
         return Plugin.wrap(target, this);
     }
 
     @Override
     public void setProperties(Properties properties) {
+        // 读取插件xml配置的属性，给自定义的属性赋值；
+        String isEnable = properties.getProperty("isEnable");
+        this.isEnable = Boolean.parseBoolean(isEnable);
         System.out.println("-----------------------------------这是我的自定义拦截器");
         System.out.println("properties = " + properties);
         System.out.println("-----------------------------------这是我的自定义拦截器");
