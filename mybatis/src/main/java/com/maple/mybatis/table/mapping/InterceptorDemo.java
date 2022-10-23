@@ -13,8 +13,13 @@ import org.apache.ibatis.session.SqlSession;
 
 public class InterceptorDemo {
     public static void main(String[] args) {
+
+        // 持久化代理对象class
+        // System.setProperty("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
+
         SqlSession sqlSession = SqlSessionUtil.getSqlSession();
         StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
         Student student = mapper.selectById(1L);
+        Student student2 = mapper.selectById(1L);
     }
 }

@@ -50,6 +50,7 @@ public class MyInterceptor implements Interceptor {
 
     @Override
     public Object plugin(Object target) {
+        // 加载插件，通过pluginAll遍历所有插件生成代理对象。
         System.out.println("-----------------------------------这是我的自定义拦截器");
         System.out.println("target = " + target);
         System.out.println("-----------------------------------这是我的自定义拦截器");
