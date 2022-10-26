@@ -9,6 +9,7 @@
     <modules>
         <module>mybatis</module>
         <module>note</module>
+        <module>spring</module>
     </modules>
 
     <packaging>pom</packaging>
