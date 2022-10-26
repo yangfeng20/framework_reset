@@ -1,5 +1,6 @@
 package com.maple.quick;
 
+import com.maple.entity.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -12,9 +13,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class QuickDemo {
 
     public static void main(String[] args) {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+        // 不同配置文件的使用同一个id，会覆盖(一个配置问价重复会报错)
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml", "spring01.xml");
 
-        Object bean = applicationContext.getBean("userBean");
+        User bean = applicationContext.getBean("userBean", User.class);
         System.out.println(bean);
     }
 }

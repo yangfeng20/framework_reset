@@ -8,4 +8,7 @@ package com.maple.entity;
 
 public class User {
 
+    public User(){
+        System.out.println("User.User");
+    }
 }
