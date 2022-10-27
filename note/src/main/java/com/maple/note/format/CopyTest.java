@@ -19,6 +19,7 @@ public class CopyTest {
     public static void main(String[] args) {
         Student01 student01 = new Student01();
         student01.setName("student01");
+        student01.setAge(10);
 
 
         List<Address01> addressList = Stream.iterate(0, i -> i + 1).map(index -> {

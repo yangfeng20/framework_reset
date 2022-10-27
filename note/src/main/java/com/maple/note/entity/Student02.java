@@ -2,6 +2,7 @@ package com.maple.note.entity;
 
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -17,4 +18,6 @@ public class Student02 {
 
 
     private List<Address02> addressList;
+
+    private BigDecimal age;
 }

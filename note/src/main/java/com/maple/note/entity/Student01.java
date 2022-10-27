@@ -17,4 +17,6 @@ public class Student01 {
 
 
     private List<Address01> addressList;
+
+    private Integer age;
 }
