@@ -5,5 +5,15 @@
 
 
     <bean id="userBean" class="com.maple.entity.User"/>
+    
+    <bean id="user" class="com.maple.entity.User">
+        <!-- 写property其实是set注入-->
+        <property name="student" ref="userBean"/>
+    </bean>
+
+    <bean class="com.maple.entity.Person" id="person">
+        <constructor-arg name="user" ref="user"/>
+        <constructor-arg index="0" value="哈哈"/>
+    </bean>
 
 </beans>

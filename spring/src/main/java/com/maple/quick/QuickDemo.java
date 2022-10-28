@@ -1,6 +1,8 @@
 package com.maple.quick;
 
+import com.maple.entity.Person;
 import com.maple.entity.Student;
+import com.maple.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -21,7 +23,13 @@ public class QuickDemo {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml", "spring01.xml");
 
         Student bean = applicationContext.getBean("userBean", Student.class);
-        logger.info(bean.toString());
+        System.out.println(bean);
+
+        User user = applicationContext.getBean("user", User.class);
+        System.out.println(user.getStudent());
+
+        Person person = applicationContext.getBean("person", Person.class);
+        System.out.println(person);
 
     }
 }
