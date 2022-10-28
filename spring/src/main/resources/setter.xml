@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="student" class="com.maple.setter.entity.Student">
+        <property name="name" value="张三"/>
+        <property name="list">
+            <list>
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+            </list>
+        </property>
+
+        <property name="properties">
+            <props>
+                <prop key="1">value1</prop>
+                <prop key="2">value2</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!--byName:自动装配时bean的名字需要和set方法去掉set，首字母小写一致-->
+    <bean id="abc" class="com.maple.setter.entity.Header"/>
+
+    <!--byType 不需要和set方法保持一致-->
+    <bean id="faceAAA" class="com.maple.setter.entity.Face"/>
+
+    <!--使用自动装配: 自动注入person的字段，在容器中找有没有这个对象，通过setter注入-->
+    <bean id="person" class="com.maple.setter.entity.Person" autowire="byType"/>
+</beans>
