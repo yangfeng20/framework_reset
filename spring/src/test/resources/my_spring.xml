@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+
+    <bean id="user" class="com.maple.myspring.entity.User">
+        <property name="student" ref="student"/>
+        <property name="age" value="10"/>
+        <property name="name" value="张三"/>
+        <property name="test" value="false"/>
+    </bean>
+
+
+    <bean id="student" class="com.maple.myspring.entity.Student"/>
+
+</beans>
