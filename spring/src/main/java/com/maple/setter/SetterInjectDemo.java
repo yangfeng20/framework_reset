@@ -13,7 +13,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class SetterInjectDemo {
     public static void main(String[] args) {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("setter.xml");
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("setter/setter.xml");
 
         // setter注入
         Student student = applicationContext.getBean("student", Student.class);

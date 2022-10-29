@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--直接通过构造方法创建bean-->
+    <bean id="student" class="com.maple.instance.Student"/>
+
+    <!-- 通过简单工厂实例化-->
+    <bean id="studentFactory" class="com.maple.instance.StudentFactory" factory-method="getInstance"/>
+
+    <!--通过factoryBean接口-->
+    <bean id="person" class="com.maple.instance.FactoryBeanPerosn"/>
+
+</beans>
