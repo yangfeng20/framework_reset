@@ -3,6 +3,8 @@ package com.maple.instance;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.text.SimpleDateFormat;
+
 /**
  * @author 杨锋
  * @date 2022/10/29 10:18
@@ -21,5 +23,8 @@ public class BeanInstanceDemo {
 
         StudentFactory studentFactory = applicationContext.getBean("studentFactory", StudentFactory.class);
         System.out.println(studentFactory);
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd ss");
+        System.out.println(simpleDateFormat.format(applicationContext.getBean("myDate")));
     }
 }

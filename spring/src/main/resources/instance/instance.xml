@@ -12,4 +12,9 @@
     <!--通过factoryBean接口-->
     <bean id="person" class="com.maple.instance.FactoryBeanPerosn"/>
 
+    <!--factoryBean的实际应用：比如用于创建指定时间的date对象：其实也就是对创建的bean进行加工-->
+    <bean id="myDate" class="com.maple.instance.DateFactoryBean">
+        <constructor-arg name="dateStr" value="2000-10-20"/>
+    </bean>
+
 </beans>
