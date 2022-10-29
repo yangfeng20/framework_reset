@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--setter+single 方式不会产生循环依赖问题：bean被创建之后会提前曝光-->
+    <!--todo stter + prototype会出问题，每次都需要重新创建对象-->
+    <bean id="student" class="com.maple.cyclicdi.Student" scope="singleton">
+        <property name="clazz" ref="clazz"/>
+        <!--<constructor-arg name="clazz" ref="clazz"/>-->
+    </bean>
+
+    <bean id="clazz" class="com.maple.cyclicdi.Class" scope="singleton">
+        <property name="student" ref="student"/>
+        <!--<constructor-arg name="student" ref="student"/>-->
+    </bean>
+
+    <!--构造注入+single+prototype会出出现问题-->
+
+
+</beans>
