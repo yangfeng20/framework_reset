@@ -89,6 +89,14 @@
             <artifactId>spring-aspects</artifactId>
             <version>5.3.9</version>
         </dependency>
+
+        <!--spring对junit的支持：直接在test中启动容器-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.3.19</version>
+        </dependency>
+
     </dependencies>
 
 </project>

@@ -35,5 +35,6 @@ public class AccountService {
         if (accountMapper.updateById(toAccount) + i != 2) {
             throw new RuntimeException("转账失败");
         }
+        System.out.println("--------------------转账成功");
     }
 }
