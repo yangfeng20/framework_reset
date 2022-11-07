@@ -8,22 +8,23 @@ package com.maple.note.format;
 
 public class RequestFormat {
     public static void main(String[] args) {
-        String str = "accountId:3477164\n" +
+        String str = "accountId:1\n" +
                 "accountTenantId:3453540\n" +
                 "ext:\n" +
+                "xAppId:\"41006\"\n" +
                 "xBPId:\"3458371\"\n" +
-                "xClientIp:\"113.57.21.204\"\n" +
+                "xClientIp:\"106.15.37.67, 10.88.104.171, 10.88.104.174, 10.88.107.185\"\n" +
                 "xConnectTimeoutMillis:0\n" +
-                "xDeviceId:\"0131c1e51cabd95c2404a015d2c8774a\"\n" +
+                "xDeviceId:\"062a351bd2cab69d62d6a829f16893a7\"\n" +
                 "xLangCode:\"zh\"\n" +
                 "xPlatformId:4\n" +
                 "xReadTimeoutMillis:0\n" +
-                "xSession:\"4bc19054d45c4d4af878da4c299f424b\"\n" +
+                "xSession:\"a37796331534cd4a2857adfe26d713ee\"\n" +
                 "xSourceAppId:\"61501\"\n" +
                 "xTenantId:3454329\n" +
-                "xTraceId:\"ed7d97f8c689402cac9ca9efbdf3175a.147.16661808644022965\"\n" +
-                "xUserId:3483648\n" +
-                "xUserName:\"罗娟\"";
+                "xTraceId:\"b9a1fdd03c4b4a3b9c820ce269dc6c8c.123.16672940310800529\"\n" +
+                "xUserId:3469467\n" +
+                "xUserName:\"江苏远洋管理\"";
 
         format(str);
     }
