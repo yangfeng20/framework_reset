@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!--springMVC的配置文件：用来声明controller对象以及web相关的对象的-->
+
+    <!--声明组件扫描器：通过注解声明controller对象到mvc容器中，所以需要在controller包上组件扫描器-->
+    <context:component-scan base-package="com.maple"/>
+
+    <!--视图解析器：返回视图是只需要写逻辑名称就可以了-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--前缀：prefix-->
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <!--后缀：.jsp-->
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!--注解驱动：【1】处理ajax，返回json 【2】处理静态资源（解决冲突）-->
+    <mvc:annotation-driven/>
+
+</beans>
