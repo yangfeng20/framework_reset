@@ -11,6 +11,7 @@
         <module>note</module>
         <module>spring</module>
         <module>spring-mvc</module>
+        <module>rabbitmq/mq-original</module>
     </modules>
 
     <packaging>pom</packaging>

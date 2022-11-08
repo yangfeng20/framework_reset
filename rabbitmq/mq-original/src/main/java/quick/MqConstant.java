@@ -1,4 +1,4 @@
-package com.maple.note.mq;
+package quick;
 
 /**
  * @author 杨锋

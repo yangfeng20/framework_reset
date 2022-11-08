@@ -1,4 +1,4 @@
-package com.maple.note.mq;
+package quick;
 
 import com.rabbitmq.client.*;
 
@@ -11,7 +11,7 @@ import java.nio.charset.StandardCharsets;
  * desc:
  */
 
-public class MqConsumer01 {
+public class MqConsumer02 {
     public static void main(String[] args) throws Exception {
         accept();
     }
@@ -25,11 +25,12 @@ public class MqConsumer01 {
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                 // 接收消息
                 String message = new String(body, StandardCharsets.UTF_8);
-                System.out.println("接收的消息为："+message);
+                System.out.println(consumerTag+"接收的消息为："+message);
 
-                // ack
+                // unAckEd
                 Channel innerChanel = super.getChannel();
-                innerChanel.basicAck(envelope.getDeliveryTag(), false);
+                //
+                //innerChanel.basicNack(envelope.getDeliveryTag(), false, true);
             }
         });
     }

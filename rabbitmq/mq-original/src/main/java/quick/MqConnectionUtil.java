@@ -1,4 +1,4 @@
-package com.maple.note.mq;
+package quick;
 
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
