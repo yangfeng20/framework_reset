@@ -25,6 +25,8 @@ public class MqProvider {
         channel.exchangeDeclare(MqConstant.EXCHANGE, "topic", true, false, null);
         // 绑定队列
         channel.queueBind(MqConstant.QUEUE, MqConstant.EXCHANGE, MqConstant.KEY);
+        // 声明一个临时队列，并获取队列名（当消费者断开连接时，自动删除）
+        String tempQueueName = channel.queueDeclare().getQueue();
 
         String message = System.getProperty("user.name") + " 发送消息：" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 

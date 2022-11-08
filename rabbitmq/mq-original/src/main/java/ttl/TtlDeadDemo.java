@@ -19,7 +19,7 @@ import java.util.HashMap;
  * 队列设置消息TTL： 因为通过队列设置消息TTL，整个队列中的过期时间是一样的（不另外通过消息属性设置TTL），那么过期的消息势必出现在队列头一整段，这个时候从队列头扫描（定时扫描）到没有过期的消息前，将这一段的消息全部抛弃或者进入死信队列。
  */
 
-public class TtlDemo {
+public class TtlDeadDemo {
     public static void main(String[] args) throws Exception{
         Connection connection = MqConnectionUtil.getConnection();
         Channel channel = connection.createChannel();
