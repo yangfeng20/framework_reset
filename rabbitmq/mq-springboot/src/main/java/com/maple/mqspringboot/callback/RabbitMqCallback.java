@@ -46,6 +46,6 @@ public class RabbitMqCallback implements RabbitTemplate.ConfirmCallback, RabbitT
 
     @Override
     public void returnedMessage(ReturnedMessage returned) {
-        System.out.println("消息未到达queue：" + returned);
+        System.out.println("消息未到达queue,key：" + returned.getRoutingKey()  + " 原因是："+returned.getReplyText());
     }
 }

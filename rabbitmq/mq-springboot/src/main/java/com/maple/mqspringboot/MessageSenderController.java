@@ -32,7 +32,7 @@ public class MessageSenderController {
     public String senderMessage(@PathVariable String msg) {
 
         String dateStr = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-        amqpTemplate.convertAndSend(RabbitMqConst.EXCHANGE, "dddddd", msg + " " + dateStr);
+        amqpTemplate.convertAndSend(RabbitMqConst.EXCHANGE, RabbitMqConst.KEY, msg + " " + dateStr);
         return dateStr;
     }
 
