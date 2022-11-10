@@ -1,5 +1,6 @@
 package com.maple.condition;
 
+import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,7 +10,9 @@ import org.springframework.stereotype.Component;
  */
 
 
+
 @Component
+@Conditional(CustomCondition.class)
 public class Student {
 
 

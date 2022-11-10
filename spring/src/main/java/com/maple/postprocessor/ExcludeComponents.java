@@ -1,4 +1,4 @@
-package com.maple.condition;
+package com.maple.postprocessor;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -18,6 +18,6 @@ public @interface ExcludeComponents {
 
     Class<?>[] value();
 
-    //@AliasFor
-    //Class<?>[] excludes;
+    //@AliasFor( value = "value")
+    //Class<?>[] excludes() default {};
 }

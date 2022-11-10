@@ -1,7 +1,5 @@
-package com.maple.condition;
+package com.maple.postprocessor;
 
-import org.springframework.context.annotation.Conditional;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,9 +8,8 @@ import org.springframework.stereotype.Component;
  * desc:
  */
 
-@Order
+
 @Component
 @ExcludeComponents(Student.class)
-@Conditional(CustomCondition.class)
 public class EntityExclude {
 }
