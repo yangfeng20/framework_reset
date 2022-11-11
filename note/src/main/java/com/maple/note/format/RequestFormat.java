@@ -11,9 +11,9 @@ public class RequestFormat {
         String str = "accountId:1\n" +
                 "accountTenantId:3453540\n" +
                 "ext:\n" +
-                "xAppId:\"41006\"\n" +
+                "xAppId:\"41008\"\n" +
                 "xBPId:\"3458371\"\n" +
-                "xClientIp:\"106.15.37.67, 10.88.104.171, 10.88.104.174, 10.88.107.185\"\n" +
+                "xClientIp:\"106.15.37.67, 10.88.105.37\"\n" +
                 "xConnectTimeoutMillis:0\n" +
                 "xDeviceId:\"062a351bd2cab69d62d6a829f16893a7\"\n" +
                 "xLangCode:\"zh\"\n" +
@@ -22,7 +22,7 @@ public class RequestFormat {
                 "xSession:\"a37796331534cd4a2857adfe26d713ee\"\n" +
                 "xSourceAppId:\"61501\"\n" +
                 "xTenantId:3454329\n" +
-                "xTraceId:\"b9a1fdd03c4b4a3b9c820ce269dc6c8c.123.16672940310800529\"\n" +
+                "xTraceId:\"ca1aac90ec3641dd8aa5290d40ba7c0e.121.16680676440269563\"\n" +
                 "xUserId:3469467\n" +
                 "xUserName:\"江苏远洋管理\"";
 
