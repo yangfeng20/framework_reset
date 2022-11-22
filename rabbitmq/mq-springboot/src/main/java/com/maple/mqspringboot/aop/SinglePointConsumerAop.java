@@ -2,7 +2,6 @@ package com.maple.mqspringboot.aop;
 
 import com.maple.mqspringboot.config.ApolloConfig;
 import com.rabbitmq.client.Channel;
-import io.micrometer.core.instrument.util.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -10,6 +9,7 @@ import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 
@@ -32,11 +32,12 @@ public class SinglePointConsumerAop {
     @Around("execution(public void com..consumer(..)) && @annotation(rabbitListener)")
     public Object singlePointConsumer(ProceedingJoinPoint pjp, RabbitListener rabbitListener) {
 
-        // 没有配置单点消费，跳过代理，直接消费
-        if (StringUtils.isEmpty(apolloConfig.getPointConsumer())) {
+        // 没有配置单点消费，跳过代理，直接走consumer消费逻辑
+        if (CollectionUtils.isEmpty(apolloConfig.getPointConsumer())) {
             return directConsumer(pjp);
         }
 
+        // 获取consumerTag标记
         String consumerTag = null;
         Object[] args = pjp.getArgs();
         for (Object arg : args) {
@@ -45,13 +46,14 @@ public class SinglePointConsumerAop {
                 break;
             }
         }
+
         // 配置单点消费，当前消费者tag与配置不相同，消息放回队列
-        if (consumerTag != null && !consumerTag.equals(apolloConfig.getPointConsumer())) {
+        if (consumerTag != null && !apolloConfig.getPointConsumer().contains(consumerTag)) {
             return returnQueue(pjp.getArgs());
         }
 
 
-        // 消费消息
+        // 走consumer消费逻辑
         return directConsumer(pjp);
     }
 

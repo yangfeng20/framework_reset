@@ -18,6 +18,8 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 public class MqSpringBoot {
     public static void main(String[] args) {
         ConfigurableApplicationContext applicationContext = SpringApplication.run(MqSpringBoot.class, args);
+        Object student = applicationContext.getBean("student");
+        System.out.println(student);
     }
 
 
