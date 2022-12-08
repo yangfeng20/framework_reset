@@ -79,7 +79,7 @@ public abstract class AbsDataTransform<R, S> implements DataTransform<R, S> {
      * @param source source
      * @param result result
      */
-    public abstract void executeIng(S source, R result);
+    public abstract void executeIng(S source, final R result);
 
 
     /**

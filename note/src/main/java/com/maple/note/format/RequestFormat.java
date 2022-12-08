@@ -8,23 +8,23 @@ package com.maple.note.format;
 
 public class RequestFormat {
     public static void main(String[] args) {
-        String str = "accountId:1\n" +
+        String str = "accountId:3478157\n" +
                 "accountTenantId:3453540\n" +
                 "ext:\n" +
                 "xAppId:\"41008\"\n" +
-                "xBPId:\"3458371\"\n" +
-                "xClientIp:\"106.15.37.67, 10.88.105.37\"\n" +
+                "xBPId:\"0\"\n" +
+                "xClientIp:\"106.15.37.67, 10.244.9.55\"\n" +
                 "xConnectTimeoutMillis:0\n" +
-                "xDeviceId:\"062a351bd2cab69d62d6a829f16893a7\"\n" +
+                "xDeviceId:\"49ac722318d21753ad7fddedafdbd258\"\n" +
                 "xLangCode:\"zh\"\n" +
                 "xPlatformId:4\n" +
                 "xReadTimeoutMillis:0\n" +
-                "xSession:\"a37796331534cd4a2857adfe26d713ee\"\n" +
-                "xSourceAppId:\"61501\"\n" +
-                "xTenantId:3454329\n" +
-                "xTraceId:\"ca1aac90ec3641dd8aa5290d40ba7c0e.121.16680676440269563\"\n" +
-                "xUserId:3469467\n" +
-                "xUserName:\"江苏远洋管理\"";
+                "xSession:\"aa1a7b41df6bf4e567612925c75e9914\"\n" +
+                "xSourceAppId:\"62501\"\n" +
+                "xTenantId:1\n" +
+                "xTraceId:\"2cbd92a1e43244e6b54635b4d05abdfb.121.16699456057733893\"\n" +
+                "xUserId:3466878\n" +
+                "xUserName:\"货代云管理员\"";
 
         format(str);
     }
