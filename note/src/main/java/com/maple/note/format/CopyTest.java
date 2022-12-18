@@ -1,6 +1,7 @@
 package com.maple.note.format;
 
 import cn.hutool.core.bean.BeanUtil;
+import com.maple.note.collection.Student;
 import com.maple.note.entity.Address01;
 import com.maple.note.entity.Student01;
 import com.maple.note.entity.Student02;
@@ -16,7 +17,7 @@ import java.util.stream.Stream;
  */
 
 public class CopyTest {
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
         Student01 student01 = new Student01();
         student01.setName("student01");
         student01.setAge(10);
@@ -35,5 +36,17 @@ public class CopyTest {
 
         System.out.println("student01 = " + student01);
         System.out.println("student02 = " + student02);
+    }
+
+    public static void main(String[] args) {
+        Student student = new Student();
+        student.setName("张三");
+        student.setAge(10);
+
+        Object aaa= student;
+
+        Object result = BeanUtil.copyProperties(aaa, aaa.getClass());
+
+        System.out.println(result);
     }
 }

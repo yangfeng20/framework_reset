@@ -1,0 +1,2 @@
+com.maple.spring.spi.FormatInterface=\
+com.maple.spring.spi.impl.PrintFormat
