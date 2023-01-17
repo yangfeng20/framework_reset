@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+
+    <properties resource="mybatis/jdbc.properties"/>
+
+    <settings>
+        <!--输出日志到控制台-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!--设置别名-->
+    <typeAliases>
+        <!--这个包下的所有类名就是这个类的别名,用于mapper文件填写resultType-->
+        <package name="com.maple.entity"/>
+    </typeAliases>
+
+    <environments default="dev_env">
+        <environment id="dev_env">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/base_info?useSSL=false"/>
+                <property name="username" value="root"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--mapper映射文件的位置-->
+    <mappers>
+        <!--要求：【1】mapper文件和dao类的接口名一致【2】mapper文件和接口在同一目录-->
+        <package name="com.maple.entity"/>
+    </mappers>
+
+</configuration>

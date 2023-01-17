@@ -24,6 +24,11 @@
             <version>5.3.19</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+        </dependency>
+
 
         <!--log4j2的依赖-->
         <dependency>

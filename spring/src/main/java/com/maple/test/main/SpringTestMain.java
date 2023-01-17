@@ -11,14 +11,13 @@ import org.springframework.context.annotation.ComponentScan;
  */
 
 
-@ComponentScan
+@ComponentScan("com.maple.test.main")
 public class SpringTestMain {
 
     public static void main(String[] args) {
+
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringTestMain.class);
+        System.out.println(applicationContext.getBean("person"));
 
-        SpringTestMain bean = applicationContext.getBean(SpringTestMain.class);
-
-        System.out.println(bean);
     }
 }
