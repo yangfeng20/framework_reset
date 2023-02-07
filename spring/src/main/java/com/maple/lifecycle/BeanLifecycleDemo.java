@@ -1,7 +1,5 @@
 package com.maple.lifecycle;
 
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -13,23 +11,15 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 @SuppressWarnings("all")
 public class BeanLifecycleDemo {
     public static void main(String[] args) throws Exception{
-        ApplicationContext  applicationContext = new ClassPathXmlApplicationContext("lifecycle/lifecycle.xml");
+        ClassPathXmlApplicationContext  applicationContext = new ClassPathXmlApplicationContext("lifecycle/lifecycle.xml");
 
         // bean对象的完整生命周期只有单例对象有，原型模式没有销毁的生命周期（最后两步）
         User user = applicationContext.getBean("user", User.class);
+        User user1 = applicationContext.getBean("user", User.class);
+        Thread.sleep(1000);
         System.out.println("8：使用bean"+user);
 
-        // todo 自己创建的对象给spring管理
-        Person person = new Person();
-        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
-        beanFactory.registerSingleton("person", person);
 
-        new Thread(()->{
-            System.out.println(beanFactory.getBean("person"));
-        }).start();
-
-
-        Thread.sleep(1000);
         // 关闭容器
         ((ClassPathXmlApplicationContext) applicationContext).close();
     }

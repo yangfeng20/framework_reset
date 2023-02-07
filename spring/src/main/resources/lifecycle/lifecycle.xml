@@ -10,4 +10,7 @@
 
     <!--注册beanPostProcess：这个配置文件的所有bean实例化，都会执行-->
     <bean id="myBeanPostProcess" class="com.maple.lifecycle.MyBeanPostProcess"/>
+
+    <!--实例化postProcessor-->
+    <bean id="beanInstantiationPostProcess" class="com.maple.lifecycle.MyBeanInstantiationPostProcess"/>
 </beans>

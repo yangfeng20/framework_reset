@@ -3,6 +3,8 @@ package com.maple.lifecycle;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
 
+import javax.annotation.PostConstruct;
+
 /**
  * @author 杨锋
  * @date 2022/10/29 10:54
@@ -20,6 +22,11 @@ public class User implements BeanNameAware, BeanClassLoaderAware, BeanFactoryAwa
     public void setName(String name){
         this.name = name;
         System.out.println("2：set方法执行");
+    }
+
+    @PostConstruct
+    public void postConstruct(){
+        System.out.println("x: User.postConstruct");
     }
 
 
