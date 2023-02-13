@@ -71,7 +71,12 @@ public class RequestFormat {
         }
         strBuilder.append("}");
 
-        System.out.println(strBuilder.toString());
+        String headerValue = strBuilder.toString();
+        System.out.println(headerValue);
+
+
+        String request = "{\"header\":"+headerValue +",\"model\":1}";
+        System.out.println(request);
 
     }
 }
