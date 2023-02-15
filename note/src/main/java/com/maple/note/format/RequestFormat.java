@@ -7,6 +7,11 @@ package com.maple.note.format;
  */
 
 public class RequestFormat {
+
+
+    private static final String modelValue = "{\"formValues\":{\"attachmentList\":[],\"cargoJson\":{\"cargoType\":1},\"cargoTypeExtend\":\"{\\\"CargoTypeID\\\":1,\\\"CargoTypeName\\\":\\\"普货\\\",\\\"Children\\\":[]}\",\"consigneeJson\":{\"address\":\"\",\"customerReferenceNo\":\"123\",\"name\":\"\"},\"counterTerrorismJson\":{},\"docId\":1575894,\"documentParam\":{\"isVirtualChannel\":false,\"tags\":[3002]},\"isOpenCheck\":true,\"isSaveRuleVerificationDesc\":1,\"isSyncVgm\":false,\"lbContainerJson\":[],\"lineCarrierId\":15690,\"modifyProperties\":[\"bookingNo\",\"cargoJson\",\"cargoJson.cargoType.label\",\"counterTerrorismJson.cargoOfLoadingNo\",\"documentParam.cargoOwner\",\"cargoTypeExtend\",\"lineCarrierId\",\"consigneeJson\",\"containerCargoJson\",\"documentParam.customerBpId\",\"documentParam.customerBpName\",\"docId\",\"documentParam.docRoleId\",\"counterTerrorismJson.eightThousandCode\",\"formChanged\",\"groupId\",\"counterTerrorismJson.isNeedLoadOfbill\",\"isUploadFile\",\"lbComment\",\"lbContainerJson\",\"lbCopyOriginalNo\",\"lbOriginalNo\",\"lbOtherComment\",\"lbShowInfo\",\"lbVisaDate\",\"lbVisaTerminalId\",\"lineCustomsVoyage\",\"lineDischargingTerminalId\",\"lineEstimateArrPortDate\",\"lineEstimateDeliveryDate\",\"lineFromTerminalId\",\"lineReceiptPlaceTerminalId\",\"lineToTerminalId\",\"lineLbVessel\",\"mblno\",\"mdDocId\",\"nameAccountJson\",\"needConfirmUpdated\",\"notifyJson\",\"documentParam.operationId\",\"documentParam.externalOrderNo\",\"payerJson\",\"documentParam.relatedUserId\",\"documentParam.remark\",\"documentParam.saleId\",\"counterTerrorismJson.scacCode\",\"secondNotifyJson\",\"sendStatusArea\",\"documentParam.serviceId\",\"shipContractNo\",\"shipDeliveryModeId\",\"shipPaymentTerminalId\",\"shipPaymentWayId\",\"shipperJson\",\"shipShippingClauseId\",\"documentParam.tags\",\"transportInfo\",\"lineLbVoyage\",\"tags\",\"cargoJson\",\"documentParam\",\"rbSendChannelVO\",\"containerCargoJson\",\"containerJson\",\"mBlno\",\"lineFromTerminalId\",\"lineFromTerminal\",\"lineReceiptPlaceTerminalId\",\"lineReceiptPlaceTerminal\",\"lineDischargingTerminalId\",\"lineDischargingTerminal\",\"lineToTerminalId\",\"lineToTerminal\",\"counterTerrorismJson\",\"cargoTypeExtend\",\"taskId\",\"shipmentReferenceJson\",\"docChannel\",\"containerMapping\",\"packageMapping\",\"lineReceiptPlaceTerminalMapping\",\"lineFromTerminalMapping\",\"lineDischargingTerminalMapping\",\"lineToTerminalMapping\",\"configGroupId\",\"docChannelList\",\"configGroupIdList\",\"closingCustomDate\",\"billCloseDate\",\"vgmCloseDate\",\"openPortDate\",\"closePortDate\"],\"nameAccountJson\":{\"address\":\"\",\"aeoCode\":\"123\",\"cityName\":\"123\",\"countryCode\":\"CN\",\"countryId\":704,\"countryName\":\"CHINA\",\"customerReferenceNo\":\"\",\"provinceName\":\"\",\"zipCode\":\"1233\"},\"notifyJson\":{\"provinceName\":\"123\"},\"payerJson\":{\"code\":\"\",\"customerReferenceNo\":\"付款方PO\",\"exportRegistrarCode\":\"123\",\"importExportCode\":\"\",\"nvoccCertificateNo\":\"付款方NVOCC\",\"zipCode\":\"123\"},\"rbSendChannelVO\":{\"docId\":1575894,\"sendChannelVO\":{\"operationType\":1}},\"realConsignee\":{},\"realNotify\":{},\"realSecondNotify\":{},\"realShipper\":{\"provinceName\":\"123\"},\"secondNotifyJson\":{\"customerReferenceNo\":\"第二通知人PO\",\"nvoccCertificateNo\":\"第二通知人NVOCC\"},\"shipperJson\":{}},\"isAutoCheck\":true,\"validateFields\":[]}";
+
+
     public static void main(String[] args) {
         String str = "accountId:1\n" +
                 "accountTenantId:3453540\n" +
@@ -75,7 +80,7 @@ public class RequestFormat {
         System.out.println(headerValue);
 
 
-        String request = "{\"header\":"+headerValue +",\"model\":1}";
+        String request = "{\"header\":"+headerValue +",\"model\":"+modelValue+"}";
         System.out.println(request);
 
     }
