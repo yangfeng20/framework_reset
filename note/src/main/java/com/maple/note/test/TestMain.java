@@ -8,7 +8,10 @@ package com.maple.note.test;
 
 public class TestMain {
     public static void main(String[] args) throws Exception {
-        throw new UnsupportedOperationException();
+
+        String str = "\u1235"+"aaa";
+        System.out.println(str.length());
+        System.out.println(str);
     }
 
 
