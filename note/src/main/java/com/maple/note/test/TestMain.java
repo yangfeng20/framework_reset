@@ -1,18 +1,17 @@
 package com.maple.note.test;
 
+
+
+import java.util.ArrayList;
+
 /**
- * @author 杨锋
- * @date 2023/1/6 19:51
+ * @author yangfeng
+ * @date : 2023/3/23 15:04
  * desc:
  */
 
 public class TestMain {
-    public static void main(String[] args) throws Exception {
-
-        String str = "\u1235"+"aaa";
-        System.out.println(str.length());
-        System.out.println(str);
+    public  static  <T> void main(String[] args) throws Exception {
+        java.util.List<T> aa = new ArrayList<>();
     }
-
-
 }
