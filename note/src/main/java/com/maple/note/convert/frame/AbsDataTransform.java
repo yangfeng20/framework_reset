@@ -1,12 +1,13 @@
 package com.maple.note.convert.frame;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.lang.Snowflake;
+import cn.hutool.core.util.IdUtil;
 import com.google.common.collect.Lists;
 import org.apache.commons.collections.CollectionUtils;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.io.Serializable;
+import java.util.*;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
@@ -17,6 +18,10 @@ import java.util.stream.Collectors;
  */
 
 public abstract class AbsDataTransform<R, S> implements DataTransform<R, S> {
+
+    static Snowflake snowflake = IdUtil.getSnowflake(1,1);
+
+    private final Map<Long, Map<String, Map<? extends Serializable, ?>>> localMap = new HashMap<>();
 
     private static final Executor THREAD_POOL = new ThreadPoolExecutor(
             Runtime.getRuntime().availableProcessors() * 2 + 1,
@@ -43,11 +48,14 @@ public abstract class AbsDataTransform<R, S> implements DataTransform<R, S> {
             return Collections.emptyList();
         }
 
+        long key = snowflake.nextId();
+        localMap.put(key, new ConcurrentHashMap<>());
+
         // 执行前处理
-        executeBefore(sourceList);
+        executeBefore(sourceList, key);
         List<R> resultList = sourceList.stream()
                 .filter(Objects::nonNull)
-                .map(source -> CompletableFuture.supplyAsync(() -> this.transformBase(source), THREAD_POOL))
+                .map(source -> CompletableFuture.supplyAsync(() -> this.transformBase(source, key), THREAD_POOL))
                 .collect(Collectors.toList())
                 .stream()
                 .map(CompletableFuture::join)
@@ -58,10 +66,15 @@ public abstract class AbsDataTransform<R, S> implements DataTransform<R, S> {
         return resultList;
     }
 
-    protected R transformBase(S source) {
+    protected Map<String, Map<? extends Serializable, ?>> currentStore(long key) {
+        return localMap.get(key);
+    }
+
+
+    protected R transformBase(S source, long key) {
         @SuppressWarnings("unchecked")
         R copyResult = (R) BeanUtil.copyProperties(source, getResultClass());
-        executeIng(source, copyResult);
+        executeIng(source, copyResult, key);
         return copyResult;
     }
 
@@ -71,7 +84,7 @@ public abstract class AbsDataTransform<R, S> implements DataTransform<R, S> {
      *
      * @param sourceList 源对象list
      */
-    public abstract void executeBefore(List<S> sourceList);
+    public abstract void executeBefore(List<S> sourceList, long key);
 
     /**
      * 在执行转换中调用，处理特殊的赋值逻辑（普通字段已经copy，清楚重新赋值）
@@ -79,7 +92,7 @@ public abstract class AbsDataTransform<R, S> implements DataTransform<R, S> {
      * @param source source
      * @param result result
      */
-    public abstract void executeIng(S source, final R result);
+    public abstract void executeIng(S source, final R result, long key);
 
 
     /**

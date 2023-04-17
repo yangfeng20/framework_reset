@@ -25,20 +25,23 @@ public class StudentDoToDTO extends AbsDataTransform<StudentDTO, StudentDO> {
 
     private Map<Long, String> createUserMap = Collections.emptyMap();
 
+    private Map<String, Object> storeMap;
+
 
     @Override
-    public void executeBefore(List<StudentDO> sourceList) {
-        createUserMap = sourceList.stream()
+    public void executeBefore(List<StudentDO> sourceList, long key) {
+        Map<Long, String> createUserMap = sourceList.stream()
                 .map(StudentDO::getCreateId)
                 .collect(Collectors.toMap(Function.identity(), Object::toString, (x, y) -> y));
+        currentStore(key).put("user", createUserMap);
     }
 
     @Override
-    public void executeIng(StudentDO source, StudentDTO result) {
+    public void executeIng(StudentDO source, StudentDTO result, long key) {
         UserInfo userInfo = UserInfo.builder().id(source.getCreateId()).build();
 
-        Optional.ofNullable(createUserMap.get(source.getCreateId()))
-                .ifPresent(userInfo::setName);
+        Optional.ofNullable((currentStore(key).get("user")).get(source.getCreateId()))
+                .ifPresent(item->userInfo.setName((String) item));
         result.setCreateId(userInfo);
     }
 
