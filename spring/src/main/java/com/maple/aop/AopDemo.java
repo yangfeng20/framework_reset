@@ -16,8 +16,8 @@ public class AopDemo {
         //System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY,"D:\\Program Dev\\Java\\05-Dev\\framework_reset\\spring\\src\\main\\java\\com\\maple\\aop\\generate");
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringAopConfig.class);
 
-        UserService userService = applicationContext.getBean("userService", UserService.class);
-        userService.createUser(new UserParam());
+        //UserService userService = applicationContext.getBean("userService", UserService.class);
+        //userService.createUser(new UserParam());
 
         UserApi userApi = applicationContext.getBean("userApi", UserApi.class);
         userApi.queryUser();

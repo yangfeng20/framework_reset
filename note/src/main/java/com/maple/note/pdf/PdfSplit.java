@@ -21,9 +21,9 @@ import java.util.List;
 public class PdfSplit {
 
     public static void main(String[] args) {
-        String pdfFilePath = "D:\\学习\\Typora笔记\\简历\\2023新简历.pdf";
+        String pdfFilePath = "D:\\学习\\Typora笔记\\简历\\简历-2023.pdf";
         // 只需要第一页和第二页并覆盖之前的文件
-        pdfSplitAndOverride(pdfFilePath, 1, 2);
+        pdfSplitAndOverride(pdfFilePath, 1, 3);
     }
 
     /**

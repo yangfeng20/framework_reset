@@ -13,6 +13,7 @@
         <module>spring-mvc</module>
         <module>rabbitmq/mq-original</module>
         <module>rabbitmq/mq-springboot</module>
+        <module>agent</module>
     </modules>
 
     <packaging>pom</packaging>

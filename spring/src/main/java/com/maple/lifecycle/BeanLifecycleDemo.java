@@ -15,7 +15,7 @@ public class BeanLifecycleDemo {
 
         // bean对象的完整生命周期只有单例对象有，原型模式没有销毁的生命周期（最后两步）
         User user = applicationContext.getBean("user", User.class);
-        User user1 = applicationContext.getBean("user", User.class);
+        //User user1 = applicationContext.getBean("user", User.class);
         Thread.sleep(1000);
         System.out.println("8：使用bean"+user);
 

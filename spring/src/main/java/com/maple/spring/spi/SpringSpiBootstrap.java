@@ -13,7 +13,8 @@ import java.util.List;
 
 
 
-public class SpringSpiBootstrap {
+public class
+SpringSpiBootstrap {
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringSpiBootstrap.class);

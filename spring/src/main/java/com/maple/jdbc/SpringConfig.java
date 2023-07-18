@@ -3,10 +3,7 @@ package com.maple.jdbc;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
@@ -20,6 +17,7 @@ import javax.sql.DataSource;
 @Configuration
 @PropertySource(value = "classpath:setter/jdbc.properties")
 @ComponentScan("com.maple.jdbc")
+@EnableAspectJAutoProxy
 public class SpringConfig implements ApplicationContextAware {
 
     private ApplicationContext applicationContext;

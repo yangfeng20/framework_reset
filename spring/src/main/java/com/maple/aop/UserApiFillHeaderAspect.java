@@ -15,6 +15,10 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class UserApiFillHeaderAspect {
 
+    UserApiFillHeaderAspect(){
+        System.out.println("UserApiFillHeaderAspect.UserApiFillHeaderAspect");
+    }
+
     @Around("@annotation(fillHeader)")
     public Object fillHeader(ProceedingJoinPoint joinPoint, FillHeader fillHeader) throws Throwable{
         System.out.println("注解环绕通知------");
@@ -22,4 +26,7 @@ public class UserApiFillHeaderAspect {
         System.out.println("注解环绕通知------");
         return proceed;
     }
+
+
+
 }
