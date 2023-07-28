@@ -20,11 +20,11 @@ public class AsmPrint {
         printAsmCode(CodeSource.class);
     }
 
-    private static void printAsmCode(Class<?> clazz) throws IOException {
+    public static void printAsmCode(Class<?> clazz) throws IOException {
         printCode(clazz, CodeType.ASM_CODE);
     }
 
-    private static void printByteCode(Class<?> clazz) throws IOException {
+    public static void printByteCode(Class<?> clazz) throws IOException {
         printCode(clazz, CodeType.BYTE_CODE);
     }
 
