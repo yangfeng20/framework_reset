@@ -3,6 +3,9 @@ package com.maple.aop;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 /**
  * @author 杨锋
  * @date 2022/10/29 21:03
@@ -19,8 +22,13 @@ public class AopDemo {
         //UserService userService = applicationContext.getBean("userService", UserService.class);
         //userService.createUser(new UserParam());
 
-        UserApi userApi = applicationContext.getBean("userApi", UserApi.class);
-        userApi.queryUser();
+        UserInterface userApi = applicationContext.getBean("userApi", UserInterface.class);
+        userApi.test02(1, 2, new int[]{1});
+        userApi.test01(1);
+
+        ArrayList<Object> objects = new ArrayList<>();
+
+        System.out.println(Collection.class.isAssignableFrom(objects.getClass()));
 
     }
 }

@@ -9,11 +9,16 @@ import org.springframework.stereotype.Controller;
  */
 
 @Controller
-public class UserApi {
+public class UserApi implements UserInter{
 
     @FillHeader
     public User queryUser() {
         System.out.println("我是查询用户");
         return new User();
+    }
+
+    @Override
+    public void test01(Integer a) {
+        System.out.println("UserApi.test01");
     }
 }
