@@ -5,6 +5,8 @@ import com.maple.base.AsmPrint;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.Opcodes;
 
+import java.lang.reflect.Field;
+
 /**
  * @author yangfeng
  * @date : 2023/7/25 14:14
@@ -34,9 +36,15 @@ public class VisitorDemo {
         classWriter.visitEnd();
 
 
-        Class<?> clazz = new AsmClassLoader().loadClass(classWriter.toByteArray());
+        byte[] bytes = classWriter.toByteArray();
+        Class<?> clazz = new AsmClassLoader().loadClass(bytes);
         System.out.println(clazz);
-        System.out.println("---------------------------");
-        AsmPrint.printAsmCode(clazz);
+        System.out.println("-----------------------------------------------------------");
+        AsmPrint.printAsmCode(bytes);
+
+
+        for (Field field : clazz.getDeclaredFields()) {
+            System.out.println("字段名："+field.getName() + " 字段值："+field.get(null));
+        }
     }
 }
