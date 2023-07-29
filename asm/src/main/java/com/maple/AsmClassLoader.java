@@ -1,10 +1,6 @@
 package com.maple;
 
 import org.objectweb.asm.ClassReader;
-import org.objectweb.asm.ClassVisitor;
-import org.objectweb.asm.Opcodes;
-
-import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author yangfeng
@@ -27,17 +23,6 @@ public class AsmClassLoader extends ClassLoader {
 
     public Class<?> loadClass(byte[] bytes) {
         ClassReader classReader = new ClassReader(bytes);
-
-        AtomicReference<String> atomicReference = new AtomicReference<>();
-        String fullClassName;
-        classReader.accept(new ClassVisitor(Opcodes.ASM9) {
-            @Override
-            public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
-                atomicReference.set(name);
-                super.visit(version, access, name, signature, superName, interfaces);
-            }
-        }, 0);
-
-        return defineClass(atomicReference.get().replace("/", "."), bytes, 0, bytes.length);
+        return defineClass(classReader.getClassName().replace("/", "."), bytes, 0, bytes.length);
     }
 }
