@@ -15,6 +15,7 @@
         <module>rabbitmq/mq-springboot</module>
         <module>agent</module>
         <module>asm</module>
+        <module>agent-app</module>
     </modules>
 
     <packaging>pom</packaging>

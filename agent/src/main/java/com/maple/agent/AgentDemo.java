@@ -9,11 +9,22 @@ import java.lang.instrument.Instrumentation;
  */
 
 public class AgentDemo {
-    public static void premain(String[] args, Instrumentation instrumentation) {
 
+    /**
+     * 静态加载方式；-javaagent参数在在启动时manifest ：指定PerMainClass
+     * @param args
+     * @param instrumentation
+     */
+    public static void premain(String args, Instrumentation instrumentation) {
+        System.out.println("----------------------------------------permian-----------------------");
     }
 
-    public static void agentmain(String[] args, Instrumentation instrumentation) {
+    /**
+     * 动态加载方式；在启动之后附加进去，manifest：指定AgentClass
+     * @param args
+     * @param instrumentation
+     */
+    public static void agentmain(String args, Instrumentation instrumentation) {
 
     }
 }
