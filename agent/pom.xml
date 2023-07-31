@@ -19,6 +19,14 @@
         <maven.configuration.manifestFile>src/main/resources/META-INF/MANIFEST.MF</maven.configuration.manifestFile>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>9.3</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -33,6 +41,43 @@
                         <manifestFile>${maven.configuration.manifestFile}</manifestFile>
                     </archive>
                 </configuration>
+            </plugin>
+
+            <!--将依赖打包到jar包中-->
+            <!--<plugin>-->
+            <!--    <artifactId>maven-assembly-plugin</artifactId>-->
+            <!--    <version>3.3.0</version>-->
+            <!--    <configuration>-->
+            <!--        <descriptorRefs>-->
+            <!--            <descriptorRef>jar-with-dependencies</descriptorRef>-->
+            <!--        </descriptorRefs>-->
+            <!--    </configuration>-->
+            <!--    <executions>-->
+            <!--        <execution>-->
+            <!--            <id>assemble-all</id>-->
+            <!--            <phase>package</phase>-->
+            <!--            <goals>-->
+            <!--                <goal>single</goal>-->
+            <!--            </goals>-->
+            <!--        </execution>-->
+            <!--    </executions>-->
+            <!--</plugin>-->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.4</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

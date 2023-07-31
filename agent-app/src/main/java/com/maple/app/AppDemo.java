@@ -1,5 +1,7 @@
 package com.maple.app;
 
+import java.util.Date;
+
 /**
  * @author yangfeng
  * @date : 2023/7/31 10:13
@@ -7,9 +9,15 @@ package com.maple.app;
  */
 
 public class AppDemo {
-    public static void main(String[] args) {
-        System.out.println("-------------------main start-----------------");
+    public static void main(String[] args) throws Exception {
+        System.out.println("-------------------main start---------------");
         System.out.println("hello world");
         System.out.println("-------------------main end-----------------");
+
+
+        Class<Student> clazz = Student.class;
+        Date date = new Date();
+        System.out.println("类：" + clazz);
+        System.out.println("实例：" + clazz.newInstance());
     }
 }

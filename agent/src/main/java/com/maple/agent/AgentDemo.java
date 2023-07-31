@@ -15,8 +15,11 @@ public class AgentDemo {
      * @param args
      * @param instrumentation
      */
-    public static void premain(String args, Instrumentation instrumentation) {
-        System.out.println("----------------------------------------permian-----------------------");
+    public static void premain(String args, Instrumentation instrumentation) throws Exception {
+        MyClassFileTransformer transformer = new MyClassFileTransformer(instrumentation);
+        instrumentation.addTransformer(transformer, true);
+        transformer.retransformClasses(instrumentation);
+        System.out.println("-------------------permian------------------");
     }
 
     /**
