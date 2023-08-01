@@ -17,4 +17,18 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+
+    <!--使用动态加载agent时，需要三个应用：业务应用，agent应用，加载agent的应用【需要包含tools.jar依赖】-->
+    <dependencies>
+        <!--tools.jar-->
+        <!-- for com.sun.tools.attach.VirtualMachine api -->
+        <dependency>
+            <groupId>com.github.olivergondza</groupId>
+            <artifactId>maven-jdk-tools-wrapper</artifactId>
+            <version>0.1</version>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
 </project>

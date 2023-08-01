@@ -1,9 +1,7 @@
 package com.maple.agent;
 
-import jdk.internal.org.objectweb.asm.util.CheckClassAdapter;
 import org.objectweb.asm.*;
 
-import java.io.PrintWriter;
 import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.IllegalClassFormatException;
 import java.lang.instrument.Instrumentation;
@@ -53,10 +51,6 @@ public class MyClassFileTransformer implements ClassFileTransformer, Opcodes {
 
         classReader.accept(classVisitor, ClassReader.SKIP_FRAMES);
         byte[] bytes = classWriter.toByteArray();
-
-        if ("java/lang/Object".equals(className)) {
-            CheckClassAdapter.verify(new jdk.internal.org.objectweb.asm.ClassReader(bytes), false, new PrintWriter(System.out));
-        }
         return bytes;
 
     }

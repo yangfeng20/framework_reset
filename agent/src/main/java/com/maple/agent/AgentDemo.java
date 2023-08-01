@@ -19,7 +19,7 @@ public class AgentDemo {
         MyClassFileTransformer transformer = new MyClassFileTransformer(instrumentation);
         instrumentation.addTransformer(transformer, true);
         transformer.retransformClasses(instrumentation);
-        System.out.println("-------------------permian------------------");
+        System.out.println("-------------------perMain------------------");
     }
 
     /**
@@ -28,6 +28,6 @@ public class AgentDemo {
      * @param instrumentation
      */
     public static void agentmain(String args, Instrumentation instrumentation) {
-
+        System.out.println("-------------------agentMain------------------");
     }
 }

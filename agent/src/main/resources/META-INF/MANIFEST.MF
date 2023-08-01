@@ -1,4 +1,5 @@
 Premain-Class: com.maple.agent.AgentDemo
+Agent-Class: com.maple.agent.AgentDemo
 Manifest-Version: 1.0
 Can-Redefine-Classes: true
 Can-Retransform-Classes: true
