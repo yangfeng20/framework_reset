@@ -40,6 +40,9 @@ public class MyClassFileTransformer implements ClassFileTransformer, Opcodes {
 
     @Override
     public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
+        if (1==1){
+            return classfileBuffer;
+        }
         if ("java/lang/StringBuilder".equals(className) || "java/nio/CharBuffer".equals(className) || "java/lang/StringBuffer".equals(className) || "java/lang/Throwable".equals(className)) {
             return classfileBuffer;
         }

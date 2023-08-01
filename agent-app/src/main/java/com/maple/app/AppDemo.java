@@ -13,6 +13,7 @@ public class AppDemo {
         System.out.println("-------------------main start---------------");
         System.out.println("hello world");
         System.out.println("-------------------main end-----------------");
+        Thread.sleep(1000000000000L);
 
 
         Class<Student> clazz = Student.class;
