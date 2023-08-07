@@ -6,7 +6,9 @@ import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.IllegalClassFormatException;
 import java.lang.instrument.Instrumentation;
 import java.security.ProtectionDomain;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author yangfeng
@@ -26,21 +28,21 @@ public class MyClassFileTransformer implements ClassFileTransformer, Opcodes {
 
     public void retransformClasses(Instrumentation instrumentation) {
         Class<?>[] allLoadedClasses = instrumentation.getAllLoadedClasses();
-        //classList = Arrays.stream(allLoadedClasses).map(Class::getName).collect(Collectors.toList());
-        //for (Class<?> clazz : allLoadedClasses) {
-        //    try {
-        //        instrumentation.retransformClasses(clazz);
-        //    } catch (Throwable e) {
-        //        System.out.println("不可修改类：" + clazz.getName() + " 异常信息：" + e);
-        //    }
-        //}
+        classList = Arrays.stream(allLoadedClasses).map(Class::getName).collect(Collectors.toList());
+        for (Class<?> clazz : allLoadedClasses) {
+            try {
+                instrumentation.retransformClasses(clazz);
+            } catch (Throwable e) {
+                System.out.println("不可修改类：" + clazz.getName() + " 异常信息：" + e);
+            }
+        }
     }
 
     @Override
     public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
-        if (1==1){
-            return classfileBuffer;
-        }
+        //if (1==1){
+        //    return classfileBuffer;
+        //}
         if ("java/lang/StringBuilder".equals(className) || "java/nio/CharBuffer".equals(className) || "java/lang/StringBuffer".equals(className) || "java/lang/Throwable".equals(className)) {
             return classfileBuffer;
         }
