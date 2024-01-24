@@ -1,7 +1,6 @@
 package com.maple.note.test;
 
-import java.util.ArrayList;
-import java.util.stream.Collectors;
+import com.google.common.collect.Lists;
 
 /**
  * @author yangfeng
@@ -10,88 +9,9 @@ import java.util.stream.Collectors;
  */
 
 public class InnerTest {
-
-    public static void main(String[] args) throws Exception {
-
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(null);
-
-        System.out.println(list.stream().collect(Collectors.toList()));
-        //
-        //try {
-        //    test01();
-        //} catch (Exception e) {
-        //    throw new RuntimeException(e);
-        //}
+    public static void main(String[] args) throws Exception{
+        String toStringStr = "JobStatInfoVO(companyId=60089, callJobId=5688807, finishedStatus=2, duration=0, hangUpType=0, chatRound=0, properties={\"anchorTypeWords\":\"customerIntention\",\"isVirtualPhone\":\"false\",\"policyName\":\"贷中固额提升_哈哈_230404-B1组(by)\",\"callJobId\":\"5688807\",\"客户称呼\":\"先生\",\"nodeLogId\":\"20154069305\",\"callStartTime\":\"2024-01-12 17:50:17\",\"linePeriodNum\":\"0\",\"释放额度\":\"5200\",\"marketPlanName\":\"5688807-贷中固额提升_哈哈_230404-B1组(by)\",\"联系方式\":\"1LpiIvxjSOPDdNDNoGD3wSeM9POWacNdlkovXSJPb/E=\",\"aiSeatBillPeriodNum\":\"0\",\"userId\":\"533096561564413952\",\"taskStartTime\":\"2024-01-12 17:50:15\",\"姓名\":\"谢红民\",\"companyId\":\"60089\",\"maFlag\":\"callJob\",\"executeLogId\":\"2906438977\",\"wechatPushStatus\":\"0\",\"客户名称\":\"未知客户\",\"workflowId\":\"39781\"}, onIntent=null, ifUpdateCountTotal=true, lastFinishedStatus=null, calledTimes=1, linePeriodCount=0, aiSeatBillPeriodCount=0, overTwoChatRoundCount=0)";
+        String result = ToStringUtils.toJSONString(toStringStr, Lists.newArrayList("properties", "dialogueRoundsJson"));
+        System.out.println(result);
     }
-
-
-    public static void test01() throws Exception {
-        test02();
-    }
-
-    public static void test02() throws Exception {
-        try {
-            test03();
-        } catch (Exception e) {
-            throw new AppException02("test02", e);
-        }
-    }
-
-    public static void test03() throws Exception {
-        try {
-            test04();
-        } catch (Exception e) {
-            throw new AppException03("test03", e);
-        }
-
-    }
-
-    public static void test04() throws Exception {
-        throw new AppException04("test04");
-    }
-
-    static class AppException01 extends RuntimeException {
-        public AppException01(String message) {
-            super(message);
-        }
-
-        public AppException01(String message, Throwable e) {
-            super(message, e);
-        }
-    }
-
-    static class AppException02 extends RuntimeException {
-        public AppException02(String message) {
-            super(message);
-        }
-
-        public AppException02(String message, Throwable e) {
-            super(message, e);
-        }
-    }
-
-    static class AppException03 extends RuntimeException {
-        public AppException03(String message) {
-            super(message);
-        }
-
-        public AppException03(String message, Throwable e) {
-            super(message, e);
-        }
-    }
-
-    static class AppException04 extends RuntimeException {
-
-        public AppException04(String message) {
-            super(message);
-        }
-
-        public AppException04(String message, Throwable e) {
-            super(message, e);
-        }
-
-    }
-
-
 }
