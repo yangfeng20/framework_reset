@@ -7,6 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author maple
@@ -16,9 +17,52 @@ import java.util.*;
 
 @Slf4j
 public class SftpMain {
-    public static void main(String[] args) throws Exception{
-        Sftp sftp = JschUtil.createSftp("120.133.26.135", 8822, "baiying", "baiying#202401");
-        buildAndIntoTargetPath(sftp, new Date());
+    public static void main(String[] args) throws Exception {
+
+        AtomicInteger atomicInteger = new AtomicInteger(1);
+        for (int i = 1; i <= 20; i++) {
+            int finalI = i;
+            new Thread(() -> {
+                try {
+                    Sftp sftp;
+                    synchronized (SftpMain.class) {
+                        sftp = JschUtil.createSftp(JschUtil.createSession("120.133.26.135", 8822, "baiying", "baiying#202401"));
+                        atomicInteger.getAndIncrement();
+                        System.out.println("创建成功");
+                    }
+                    System.out.println("创建成功-" + atomicInteger.get() + sftp);
+                    sftp.cd("/");
+                    System.out.println("执行成功-" + atomicInteger.get());
+                } catch (Exception e) {
+                    System.out.println("已经创建连接数=" + atomicInteger.get());
+                    e.printStackTrace();
+                    throw e;
+                }
+            }, "sftp线程-" + finalI).start();
+        }
+
+
+        //Sftp sftp = JschUtil.createSftp(JschUtil.createSession("120.133.26.135", 8822, "baiying", "baiying#202401"));
+        //List<String> ls = sftp.ls("data");
+        //sftp.close();
+        //
+        //sftp = JschUtil.createSftp(JschUtil.createSession("120.133.26.135", 8822, "baiying", "baiying#202401"));
+        //ls = sftp.ls("data");
+        //Console.log(ls);
+
+        //for (int i = 0; i < 40; i++) {
+        //    new Thread(() -> {
+        //        try {
+        //            Sftp sftp = JschUtil.createSftp("120.133.26.135", 8822, "baiying", "baiying#202401");
+        //            System.out.println("连接成功：" + sftp);
+        //            sftp.cd("/");
+        //        } catch (Exception e) {
+        //            e.printStackTrace();
+        //        }
+        //    }, "sftp线程-" + i).start();
+        //}
+
+        //buildAndIntoTargetPath(sftp, new Date());
     }
 
 
